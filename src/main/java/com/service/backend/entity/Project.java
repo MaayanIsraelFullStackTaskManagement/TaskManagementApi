@@ -18,7 +18,7 @@ public class Project {
     private String description;
 
     @ManyToOne
-    @JoinColumn(name = "project_owner_id", nullable = false)
+    @JoinColumn(name = "project_owner_id", nullable = false, foreignKey = @ForeignKey(name = "PERSON_ID_FK"))
     private User projectOwner;
 
     @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -57,13 +57,13 @@ public class Project {
         this.description = description;
     }
 
-    public User getProjectOwner() {
-        return projectOwner;
-    }
+    // public User getProjectOwner() {
+    // return projectOwner;
+    // }
 
-    public void setProjectOwner(User projectOwner) {
-        this.projectOwner = projectOwner;
-    }
+    // public void setProjectOwner(User projectOwner) {
+    // this.projectOwner = projectOwner;
+    // }
 
     public List<Task> getTasks() {
         return tasks;
