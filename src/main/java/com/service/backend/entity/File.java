@@ -23,6 +23,16 @@ public class File {
     @JoinColumn(name = "task_id", nullable = false)
     private Task task;
 
+    protected File() {
+    }
+
+    public File(String name, String type, String url, Task task) {
+        this.name = name;
+        this.type = type;
+        this.url = url;
+        this.task = task;
+    }
+
     // Getters and Setters
     public Long getId() {
         return id;

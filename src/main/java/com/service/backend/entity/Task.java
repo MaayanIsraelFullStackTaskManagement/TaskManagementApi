@@ -31,11 +31,34 @@ public class Task {
     @Column(nullable = false)
     private Status status = Status.BACKLOG;
 
+    protected Task() {
+    }
+
+    public Task(String title, String description, LocalDateTime createdAt, LocalDateTime updatedAt, Project project,
+            Status status) {
+        this.title = title;
+        this.description = description;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.project = project;
+        this.status = status;
+    }
+
     // Enum for Task Status
     public enum Status {
-        BACKLOG,
-        IN_PROGRESS,
-        COMPLETED
+        BACKLOG("Backlog"),
+        IN_PROGRESS("In Progress"),
+        COMPLETED("Completed");
+
+        private final String displayName;
+
+        Status(String displayName) {
+            this.displayName = displayName;
+        }
+
+        public String getDisplayName() {
+            return displayName;
+        }
     }
 
     // Getters and Setters

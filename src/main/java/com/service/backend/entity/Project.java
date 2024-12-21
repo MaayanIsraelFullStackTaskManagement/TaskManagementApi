@@ -18,13 +18,21 @@ public class Project {
     private String description;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    @JoinColumn(name = "project_owner_id", nullable = false)
+    private User projectOwner;
 
     @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Task> tasks;
 
-    // Getters and Setters
+    public Project(String name, String description, User projectOwner) {
+        this.name = name;
+        this.description = description;
+        this.projectOwner = projectOwner;
+    }
+
+    protected Project() {
+    }
+
     public Long getId() {
         return id;
     }
@@ -49,12 +57,12 @@ public class Project {
         this.description = description;
     }
 
-    public User getUser() {
-        return user;
+    public User getProjectOwner() {
+        return projectOwner;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setProjectOwner(User projectOwner) {
+        this.projectOwner = projectOwner;
     }
 
     public List<Task> getTasks() {

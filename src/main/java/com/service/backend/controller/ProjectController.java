@@ -1,7 +1,11 @@
 package com.service.backend.controller;
 
+import com.service.backend.DTO.ProjectRequest;
 import com.service.backend.entity.Project;
+import com.service.backend.entity.User;
 import com.service.backend.service.ProjectService;
+import com.service.backend.service.UserService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +18,9 @@ public class ProjectController {
     @Autowired
     private ProjectService projectService;
 
+    @Autowired
+    private UserService userService;
+
     @GetMapping("/{id}")
     public Project getProjectById(@PathVariable Long id) {
         return projectService.getProjectById(id);
@@ -25,7 +32,14 @@ public class ProjectController {
     }
 
     @PostMapping
-    public Project createProject(@RequestBody Project project) {
+    public Project createProject(@RequestBody ProjectRequest projectRequest) {
+        User projectOwner = userService.getUserById(projectRequest.getProjectOwnerId());
+
+        Project project = new Project(
+                projectRequest.getName(),
+                projectRequest.getDescription(),
+                projectOwner);
+
         return projectService.saveProject(project);
     }
 

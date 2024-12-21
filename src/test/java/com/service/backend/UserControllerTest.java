@@ -35,15 +35,11 @@ public class UserControllerTest {
 
     @BeforeEach
     void setUp() {
-        user1 = new User();
+        user1 = new User("john.doe@example.com", "John Doe");
         user1.setId(1L);
-        user1.setName("John Doe");
-        user1.setEmail("john.doe@example.com");
 
-        user2 = new User();
+        user2 = new User("jane.doe@example.com", "Jane Doe");
         user2.setId(2L);
-        user2.setName("Jane Doe");
-        user2.setEmail("jane.doe@example.com");
     }
 
     @Test
@@ -77,9 +73,7 @@ public class UserControllerTest {
 
     @Test
     void testCreateUser() throws Exception {
-        User newUser = new User();
-        newUser.setName("Alice");
-        newUser.setEmail("alice@example.com");
+        User newUser = new User("alice@example.com", "Alice");
 
         when(userService.saveUser(Mockito.any(User.class))).thenReturn(newUser);
 
@@ -95,9 +89,7 @@ public class UserControllerTest {
 
     @Test
     void testUpdateUser() throws Exception {
-        User updatedUser = new User();
-        updatedUser.setName("John Smith");
-        updatedUser.setEmail("john.smith@example.com");
+        User updatedUser = new User("john.smith@example.com", "John Smith");
 
         when(userService.getUserById(1L)).thenReturn(user1);
         when(userService.saveUser(Mockito.any(User.class))).thenReturn(updatedUser);
