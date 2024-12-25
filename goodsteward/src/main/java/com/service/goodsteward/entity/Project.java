@@ -3,8 +3,6 @@ package com.service.goodsteward.entity;
 import jakarta.persistence.*;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity
 @Table(name = "projects")
 public class Project {

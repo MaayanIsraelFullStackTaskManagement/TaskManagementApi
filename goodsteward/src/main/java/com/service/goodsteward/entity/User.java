@@ -10,7 +10,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true, columnDefinition = "TEXT")
+    @Column(nullable = false, unique = true, length = 255)
     private String email;
 
     @Column(nullable = false, columnDefinition = "TEXT")
@@ -24,7 +24,6 @@ public class User {
     protected User() {
     }
 
-    // Getters and Setters
     public Long getId() {
         return id;
     }

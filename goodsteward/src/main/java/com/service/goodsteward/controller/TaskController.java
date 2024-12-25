@@ -54,6 +54,8 @@ public class TaskController {
         task.setTitle(updatedTask.getTitle());
         task.setDescription(updatedTask.getDescription());
         task.setStatus(updatedTask.getStatus());
+        LocalDateTime now = LocalDateTime.now();
+        task.setUpdatedAt(now);
         return taskService.saveTask(task);
     }
 
