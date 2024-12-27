@@ -18,7 +18,7 @@ public class Project {
     private String description;
 
     @ManyToOne
-    @JoinColumn(name = "project_owner_id", nullable = false, foreignKey = @ForeignKey(name = "PERSON_ID_FK"))
+    @JoinColumn(name = "projectOwner", nullable = false, foreignKey = @ForeignKey(name = "PERSON_ID_FK"))
     private User projectOwner;
 
     @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)

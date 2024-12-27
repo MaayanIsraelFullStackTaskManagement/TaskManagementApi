@@ -32,29 +32,29 @@ public class StartupSQLRunner {
 
                 // Insert 2 projects for each user
                 jdbcTemplate.execute(
-                                "INSERT INTO projects (project_owner_id, name, description) VALUES (1, 'Project A - John', 'Description for Project A owned by John')");
+                                "INSERT INTO projects (project_owner, name, description) VALUES ('1', 'Project A - John', 'Description for Project A owned by John')");
                 jdbcTemplate.execute(
-                                "INSERT INTO projects (project_owner_id, name, description) VALUES (1, 'Project B - John', 'Description for Project B owned by John')");
+                                "INSERT INTO projects (project_owner, name, description) VALUES ('1', 'Project B - John', 'Description for Project B owned by John')");
 
                 jdbcTemplate.execute(
-                                "INSERT INTO projects (project_owner_id, name, description) VALUES (2, 'Project A - Jane', 'Description for Project A owned by Jane')");
+                                "INSERT INTO projects (project_owner, name, description) VALUES ('2', 'Project A - Jane', 'Description for Project A owned by Jane')");
                 jdbcTemplate.execute(
-                                "INSERT INTO projects (project_owner_id, name, description) VALUES (2, 'Project B - Jane', 'Description for Project B owned by Jane')");
+                                "INSERT INTO projects (project_owner, name, description) VALUES ('2', 'Project B - Jane', 'Description for Project B owned by Jane')");
 
                 jdbcTemplate.execute(
-                                "INSERT INTO projects (project_owner_id, name, description) VALUES (3, 'Project A - Robert', 'Description for Project A owned by Robert')");
+                                "INSERT INTO projects (project_owner, name, description) VALUES ('3', 'Project A - Robert', 'Description for Project A owned by Robert')");
                 jdbcTemplate.execute(
-                                "INSERT INTO projects (project_owner_id, name, description) VALUES (3, 'Project B - Robert', 'Description for Project B owned by Robert')");
+                                "INSERT INTO projects (project_owner, name, description) VALUES ('3', 'Project B - Robert', 'Description for Project B owned by Robert')");
 
                 jdbcTemplate.execute(
-                                "INSERT INTO projects (project_owner_id, name, description) VALUES (4, 'Project A - Emily', 'Description for Project A owned by Emily')");
+                                "INSERT INTO projects (project_owner, name, description) VALUES ('4', 'Project A - Emily', 'Description for Project A owned by Emily')");
                 jdbcTemplate.execute(
-                                "INSERT INTO projects (project_owner_id, name, description) VALUES (4, 'Project B - Emily', 'Description for Project B owned by Emily')");
+                                "INSERT INTO projects (project_owner, name, description) VALUES ('4', 'Project B - Emily', 'Description for Project B owned by Emily')");
 
                 jdbcTemplate.execute(
-                                "INSERT INTO projects (project_owner_id, name, description) VALUES (5, 'Project A - Michael', 'Description for Project A owned by Michael')");
+                                "INSERT INTO projects (project_owner, name, description) VALUES ('5', 'Project A - Michael', 'Description for Project A owned by Michael')");
                 jdbcTemplate.execute(
-                                "INSERT INTO projects (project_owner_id, name, description) VALUES (5, 'Project B - Michael', 'Description for Project B owned by Michael')");
+                                "INSERT INTO projects (project_owner, name, description) VALUES ('5', 'Project B - Michael', 'Description for Project B owned by Michael')");
 
                 // Insert tasks for each project
                 jdbcTemplate.execute(
