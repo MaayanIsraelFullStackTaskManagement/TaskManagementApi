@@ -13,9 +13,13 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public User getUserById(Long id) {
+    public User getUserById(String id) {
         return userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("User not found with ID: " + id));
+    }
+
+    public User getUserByEmail(String email) {
+        return userRepository.findByEmail(email);
     }
 
     public List<User> getAllUsers() {
@@ -26,7 +30,7 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public void deleteUser(Long id) {
+    public void deleteUser(String id) {
         if (!userRepository.existsById(id)) {
             throw new RuntimeException("User not found with ID: " + id);
         }

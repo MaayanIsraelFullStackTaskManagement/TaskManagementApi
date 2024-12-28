@@ -22,7 +22,7 @@ public class ProjectService {
                 .orElseThrow(() -> new RuntimeException("Project not found with ID: " + id));
     }
 
-    public List<Project> getProjectsByUserId(Long userId) {
+    public List<Project> getProjectsByUserId(String userId) {
         User projectOwner = userService.getUserById(userId);
         return projectRepository.findByProjectOwner(projectOwner);
     }

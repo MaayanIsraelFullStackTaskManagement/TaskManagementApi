@@ -3,7 +3,7 @@ package com.service.goodsteward.DTO;
 public class ProjectRequest {
     private String name;
     private String description;
-    private Long projectOwnerId;
+    private String projectOwnerId;
 
     // Getters and Setters
     public String getName() {
@@ -22,11 +22,11 @@ public class ProjectRequest {
         this.description = description;
     }
 
-    public Long getProjectOwnerId() {
+    public String getProjectOwnerId() {
         return projectOwnerId;
     }
 
-    public void setProjectOwnerId(Long projectOwnerId) {
+    public void setProjectOwnerId(String projectOwnerId) {
         this.projectOwnerId = projectOwnerId;
     }
 }
