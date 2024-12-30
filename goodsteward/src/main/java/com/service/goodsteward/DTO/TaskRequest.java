@@ -6,7 +6,6 @@ public class TaskRequest {
     public String description;
     public Long projectId;
 
-    // Getters and Setters
     public String getTitle() {
         return title;
     }

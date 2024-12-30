@@ -20,15 +20,15 @@ public class StartupSQLRunner {
         public void runSQLQueries() {
                 // Insert 5 users
                 jdbcTemplate.execute(
-                                "INSERT INTO users (id, name, email) VALUES (1, 'John Doe', 'john.doe@example.com')");
+                                "INSERT INTO users (id, name, email) VALUES ('1', 'John Doe', 'john.doe@example.com')");
                 jdbcTemplate.execute(
-                                "INSERT INTO users (id, name, email) VALUES (2, 'Jane Smith', 'jane.smith@example.com')");
+                                "INSERT INTO users (id, name, email) VALUES ('2', 'Jane Smith', 'jane.smith@example.com')");
                 jdbcTemplate.execute(
-                                "INSERT INTO users (id, name, email) VALUES (3, 'Robert Brown', 'robert.brown@example.com')");
+                                "INSERT INTO users (id, name, email) VALUES ('3', 'Robert Brown', 'robert.brown@example.com')");
                 jdbcTemplate.execute(
-                                "INSERT INTO users (id, name, email) VALUES (4, 'Emily Davis', 'emily.davis@example.com')");
+                                "INSERT INTO users (id, name, email) VALUES ('4', 'Emily Davis', 'emily.davis@example.com')");
                 jdbcTemplate.execute(
-                                "INSERT INTO users (id, name, email) VALUES (5, 'Michael Johnson', 'michael.johnson@example.com')");
+                                "INSERT INTO users (id, name, email) VALUES ('5', 'Michael Johnson', 'michael.johnson@example.com')");
 
                 // Insert 2 projects for each user
                 jdbcTemplate.execute(
@@ -120,6 +120,30 @@ public class StartupSQLRunner {
                                                 + LocalDateTime.now() + "')");
                 jdbcTemplate.execute(
                                 "INSERT INTO tasks (project_id, title, description, created_at) VALUES (10, 'Task 2 for Project B - Michael', 'Details of Task 2 for Project B - Michael', '"
+                                                + LocalDateTime.now() + "')");
+
+                // Insert Maayan Israel into users
+                jdbcTemplate.execute(
+                                "INSERT INTO users (id, name, email) VALUES ('user_2qpWHVX3igut2mopIF8F5UFiXl3', 'Maayan Israel', 'datcubingkid@gmail.com')");
+
+                // Insert projects for Maayan
+                jdbcTemplate.execute(
+                                "INSERT INTO projects (project_owner, name, description) VALUES ('user_2qpWHVX3igut2mopIF8F5UFiXl3', 'Maayan''s Project A', 'Description for Project A owned by Maayan')");
+                jdbcTemplate.execute(
+                                "INSERT INTO projects (project_owner, name, description) VALUES ('user_2qpWHVX3igut2mopIF8F5UFiXl3', 'Maayan''s Project B', 'Description for Project B owned by Maayan')");
+
+                // Insert tasks for Maayan's projects
+                jdbcTemplate.execute(
+                                "INSERT INTO tasks (project_id, title, description, created_at) VALUES (11, 'Task 1 for Maayan''s Project A', 'Details of Task 1 for Maayan''s Project A', '"
+                                                + LocalDateTime.now() + "')");
+                jdbcTemplate.execute(
+                                "INSERT INTO tasks (project_id, title, description, created_at) VALUES (11, 'Task 2 for Maayan''s Project A', 'Details of Task 2 for Maayan''s Project A', '"
+                                                + LocalDateTime.now() + "')");
+                jdbcTemplate.execute(
+                                "INSERT INTO tasks (project_id, title, description, created_at) VALUES (12, 'Task 1 for Maayan''s Project B', 'Details of Task 1 for Maayan''s Project B', '"
+                                                + LocalDateTime.now() + "')");
+                jdbcTemplate.execute(
+                                "INSERT INTO tasks (project_id, title, description, created_at) VALUES (12, 'Task 2 for Maayan''s Project B', 'Details of Task 2 for Maayan''s Project B', '"
                                                 + LocalDateTime.now() + "')");
         }
 
