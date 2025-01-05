@@ -1,8 +1,10 @@
 package com.service.goodsteward.controller;
 
+import com.service.goodsteward.DTO.TaskEditRequest;
 import com.service.goodsteward.DTO.TaskRequest;
 import com.service.goodsteward.entity.Project;
 import com.service.goodsteward.entity.Task;
+import com.service.goodsteward.entity.Task.Status;
 import com.service.goodsteward.service.ProjectService;
 import com.service.goodsteward.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,11 +51,13 @@ public class TaskController {
     }
 
     @PutMapping("/{id}")
-    public Task updateTask(@PathVariable Long id, @RequestBody Task updatedTask) {
+    public Task updateTask(@PathVariable Long id, @RequestBody TaskEditRequest updatedTask) {
         Task task = taskService.getTaskById(id);
         task.setTitle(updatedTask.getTitle());
         task.setDescription(updatedTask.getDescription());
-        task.setStatus(updatedTask.getStatus());
+        Task.Status status = updatedTask.getStatus().equals("BACKLOG") ? Task.Status.BACKLOG
+                : updatedTask.getStatus().equals("IN_PROGRESS") ? Task.Status.IN_PROGRESS : Task.Status.COMPLETED;
+        task.setStatus(status);
         LocalDateTime now = LocalDateTime.now();
         task.setUpdatedAt(now);
         return taskService.saveTask(task);

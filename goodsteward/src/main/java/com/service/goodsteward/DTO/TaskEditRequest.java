@@ -2,12 +2,11 @@ package com.service.goodsteward.DTO;
 
 import com.service.goodsteward.entity.Task.Status;
 
-public class TaskRequest {
+public class TaskEditRequest {
 
     public String title;
     public String description;
-    public Long projectId;
-    public Status status;
+    public String status;
 
     public String getTitle() {
         return title;
@@ -25,19 +24,11 @@ public class TaskRequest {
         this.description = description;
     }
 
-    public Long getProjectId() {
-        return projectId;
-    }
-
-    public void setProjectId(Long projectId) {
-        this.projectId = projectId;
-    }
-
-    public Status getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Status status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 }
