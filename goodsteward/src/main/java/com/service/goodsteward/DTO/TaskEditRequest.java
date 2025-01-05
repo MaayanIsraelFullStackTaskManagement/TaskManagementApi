@@ -1,7 +1,5 @@
 package com.service.goodsteward.DTO;
 
-import com.service.goodsteward.entity.Task.Status;
-
 public class TaskEditRequest {
 
     public String title;
