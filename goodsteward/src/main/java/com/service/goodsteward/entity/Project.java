@@ -1,6 +1,8 @@
 package com.service.goodsteward.entity;
 
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -22,7 +24,7 @@ public class Project {
     private User projectOwner;
 
     @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Task> tasks;
+    private List<Task> tasks = new ArrayList<>();
 
     public Project(String name, String description, User projectOwner) {
         this.name = name;
